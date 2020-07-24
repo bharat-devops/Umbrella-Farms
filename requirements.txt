@@ -1,0 +1,5 @@
+Django==3.0.8
+#Scrapy==2.2.1
+#scrapyd==1.2.1
+#python-scrapyd-api==2.1.2
+#itemadapter==0.1.0
