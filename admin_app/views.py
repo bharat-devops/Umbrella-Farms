@@ -103,3 +103,8 @@ def utilities_color(request):
 @login_required(login_url='/login/')
 def utilities_other(request): 
     return render(request, 'admin_app/utilities_other.html')
+
+
+@login_required(login_url='/login/')
+def polyhouse(request):
+    return render(request, 'admin_app/Polyhouse.html')
