@@ -36,6 +36,8 @@ urlpatterns = [
     path('utilities_border', views.utilities_border, name='utilities_border'),
     path('utilities_color', views.utilities_color, name='utilities_color'),
     path('utilities_other', views.utilities_other, name='utilities_other'),
-    path('Polyhouse', views.polyhouse, name='Polyhouse'),
+    path('Polyhouse', views.add_polyhouse, name='Polyhouse'),
+    path('Iot', views.add_iot, name='Iot'),
+
 
 ]

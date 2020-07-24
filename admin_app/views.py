@@ -106,5 +106,12 @@ def utilities_other(request):
 
 
 @login_required(login_url='/login/')
-def polyhouse(request):
+def add_polyhouse(request):
     return render(request, 'admin_app/Polyhouse.html')
+
+@login_required(login_url='/login/')
+def add_iot(request):
+    return render(request, 'admin_app/Iot.html')
+
+
+
