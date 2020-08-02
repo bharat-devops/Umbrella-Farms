@@ -10,10 +10,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+import sys
+import django
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#sys.path.insert(0, os.path.join(BASE_DIR))
 
 
 # Quick-start development settings - unsuitable for production
@@ -38,9 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'admin_app',
-    'apps.db_app',
-    'apps.iot_app',
-    'apps.scrapy_app',
+    'db_app',
+    'iot_app',
+#    'scrapy_app',
+    
 ]
 
 MIDDLEWARE = [
@@ -130,3 +135,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 ## LOGIN_REDIRECT_URL = "/admin"
 LOGIN_REDIRECT_URL = "/admin_app"
 LOGIN_URL = "/login"
+
+
