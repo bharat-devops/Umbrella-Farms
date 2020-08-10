@@ -17,9 +17,21 @@ from django.contrib import admin
 from django.urls import path,include
 from django.views.generic import TemplateView
 from django.contrib.auth.views import LoginView
+from rest_framework import routers
+
+
+###iot_app####
+# from iot_app import views
+# from rest_framework import routers
+# router = routers.DefaultRouter()
+# router.register(r'Heroes', views.HeroViewSet)
+# router.register(r'DHT22_Temperature', views.DHT22_TemperatureViewSet)
+# router.register(r'DHT22_Humidity', views.DHT22_HumidityViewSet)
+# #router = routers.DefaultRouter()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', LoginView.as_view(), name='login'),
     path('admin_app/', include('admin_app.urls')),
+    path('', include('iot_app.urls'))
 ]

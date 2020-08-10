@@ -30,3 +30,14 @@ class DHT22_Humidity_Data(models.Model):
 
     def __str__(self):
         return self.id
+
+
+class Hero(models.Model):
+    name = models.CharField(max_length=60)
+    alias = models.CharField(max_length=60)
+
+    class Meta:
+        db_table = "Hero"
+
+    def __str__(self):
+        return self.name
