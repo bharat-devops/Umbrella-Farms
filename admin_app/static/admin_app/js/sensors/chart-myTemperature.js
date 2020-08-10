@@ -82,11 +82,24 @@ var myTemperatureChart = new Chart(ctx, {
         ticks: {
         //beginAtZero: false
         //min: 0
-            max: 55,
-            min: 5,
-            stepSize: 5 
+            max: 50,
+            min: 10,
+            stepSize: 10,
+            maxTicksLimit: 5
                 }
-            }]
+            }],
+        xAxes: [{
+            time: {
+                unit: 'date'
+            },
+            ticks: {
+                maxTicksLimit: 7
+            },
+            gridLines: {
+                display: false,
+                drawBorder: false
+            }
+        }]
         }
     }
 });
