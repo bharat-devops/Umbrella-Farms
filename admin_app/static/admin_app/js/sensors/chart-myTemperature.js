@@ -97,7 +97,7 @@ var myTemperatureChart = new Chart(ctx, {
             }],
         xAxes: [{
             time: {
-                unit: 'date'
+                unit: 'datetime'
             },
             ticks: {
                 maxTicksLimit: 7
