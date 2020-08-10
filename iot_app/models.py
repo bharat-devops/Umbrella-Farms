@@ -9,7 +9,7 @@ from django.utils import timezone
 class DHT22_Temperature_Data(models.Model):
     id = models.AutoField(primary_key=True)
     SensorID = models.TextField()
-    Date_n_Time = models.TextField()
+    Date_n_Time = models.DateTimeField()
     Temperature = models.TextField()
 
     class Meta:

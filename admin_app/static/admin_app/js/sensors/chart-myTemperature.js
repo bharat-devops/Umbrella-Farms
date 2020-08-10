@@ -86,7 +86,14 @@ var myTemperatureChart = new Chart(ctx, {
             min: 10,
             stepSize: 10,
             maxTicksLimit: 5
-                }
+                },
+            gridLines: {
+                color: "rgb(234, 236, 244)",
+                zeroLineColor: "rgb(234, 236, 244)",
+                drawBorder: false,
+                borderDash: [2],
+                zeroLineBorderDash: [2]
+            }
             }],
         xAxes: [{
             time: {
