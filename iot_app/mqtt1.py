@@ -1,3 +1,4 @@
+from django.utils import timezone
 import paho.mqtt.client as mqtt
 import random
 import threading
@@ -78,9 +79,12 @@ def publish_Fake_Sensor_Values_to_MQTT():
 		Temperature_Data = {}
 		Temperature_Data['Sensor_ID'] = "Dummy-2"
 		Temperature_Data['Date'] = (
-			datetime.today()).strftime("%d-%b-%Y %H:%M:%S:%f")
+			#datetime.now()).strftime("%d-%b-%Y %H:%M")
+			#datetime.now()).strptime(date_string, "YYYY-MM-DD HH:MM")
+			datetime.now())
+			#timezone.now())
 		Temperature_Data['Temperature'] = Temperature_Fake_Value
-		temperature_json_data = json.dumps(Temperature_Data)
+		temperature_json_data = json.dumps(Temperature_Data, indent=4, sort_keys=True, default=str)
 
 		print("Publishing fake Temperature Value: " + str(Temperature_Fake_Value) + "...")
 		publish_To_Topic(MQTT_Topic_Temperature, temperature_json_data)

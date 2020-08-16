@@ -13,9 +13,10 @@
 //     }]
 //   },
 // })
-var endpoint = '/TempViewSet/'
-var defaultData = []
-var labels = []
+
+var endpoint = '/TempViewSet/';
+var defaultData = [];
+var labels = [];
 $.ajax({
   method: "GET",
   url: endpoint,
@@ -23,7 +24,11 @@ $.ajax({
     console.log(data)
     labels = data.labels
     defaultData = data.default
-    setChart()
+    setChart();
+    DayChart();
+   // myFunction()
+
+
 },
   error: function(error_data){
     console.log("error")
@@ -55,7 +60,8 @@ var myTemperatureChart = new Chart(ctx, {
     data: {
         labels: labels,
         datasets: [{
-            label: 'Temperature Details',
+            label: 'temperature',
+            fill: false,
             data: defaultData,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -82,10 +88,10 @@ var myTemperatureChart = new Chart(ctx, {
         ticks: {
         //beginAtZero: false
         //min: 0
-            max: 50,
+            max: 40,
             min: 10,
             stepSize: 10,
-            maxTicksLimit: 5
+            maxTicksLimit: 4
                 },
             gridLines: {
                 color: "rgb(234, 236, 244)",
@@ -96,19 +102,59 @@ var myTemperatureChart = new Chart(ctx, {
             }
             }],
         xAxes: [{
-            time: {
-                unit: 'datetime'
-            },
-            ticks: {
-                maxTicksLimit: 7
-            },
-            gridLines: {
-                display: false,
-                drawBorder: false
-            }
+            display: false
+            //time: {
+            //     unit: 'time',
+            //     parser: 'HH:MM:SS',
+            //     //tooltipFormat: 'll HH:mm',
+            //     unitStepSize: 1,
+            //     displayFormats: {
+            //         'time': 'HH:MM:SS'
+            //     }
+            // },
+            // ticks: {
+            //     maxTicksLimit: 4
+            // },
+            // gridLines: {
+            //     display: false,
+            //     drawBorder: false
+            //}
         }]
         }
     }
 });
+
 }
 //</script>
+
+// function DayChart() {
+//     myTemperatureChart.data.labels = labels;
+//     //myTemperatureChart.data.datasets[0].data = [1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,1,2,3,4];
+//     // chart.data.datasets[0].data = defaultData;
+//     //chart.data.datasets[0].labels = labels;
+//     myTemperatureChart.update();
+// };
+function DayChart() {
+
+    //make an ajax call and get status value using the same 'id'
+    //var var1 = document.getElementById("status").value;
+    $.ajax({
+        method: "GET",
+        url: endpoint,
+        success: function (data) {
+            console.log(data)
+            labels = data.labels
+            defaultData = data.default
+            setChart();
+            //DayChart();
+            // myFunction()
+
+
+        },
+        error: function (error_data) {
+            console.log("error")
+            console.log(error_data)
+        }
+    })
+
+};

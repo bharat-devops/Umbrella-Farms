@@ -93,19 +93,21 @@ class HelloViewSet(viewsets.ViewSet):
 
 class TempViewSet(viewsets.ViewSet):
     """test Api Viewset temp """
+    #queryset = DHT22_Temperature_Data.objects.all()[:5]
     serializer_class = TempSerializer
 
     def get(self, request, *args, **kwargs):
         #qs_count = User.objects.all().count()
-        qs_count1 = DHT22_Temperature_Data.objects.values_list('Temperature')
-        qs_count2 = DHT22_Temperature_Data.objects.values_list('Date_n_Time')
+        self.qs_count1 = DHT22_Temperature_Data.objects.values_list('Temperature').order_by('-id')[:24]
+        self.qs_count2 = DHT22_Temperature_Data.objects.values_list(
+            'Date_n_Time').order_by('-id')[:24]
         #queryset = DHT22_Temperature_Data.objects.all()
         #serializer = TempSerializer(queryset, many=True)
         
         #labels = ["Users", "blue", "yellow", "green", "purple", "orange"]
         #default_items = [qs_count, 14, 33, 32, 12, 2]
-        labels = qs_count2
-        default_items = qs_count1
+        labels = self.qs_count2
+        default_items = self.qs_count1
         data = {
             'labels': labels,
             'default': default_items,
@@ -124,3 +126,6 @@ class TempViewSet(viewsets.ViewSet):
                 serializer.errors,
                 status=status.http_400_bas_request
             )
+
+
+
