@@ -1,3 +1,4 @@
+from rest_framework.viewsets import ModelViewSet
 from django.shortcuts import render
 from rest_framework import viewsets,status
 from rest_framework import permissions
@@ -91,41 +92,81 @@ class HelloViewSet(viewsets.ViewSet):
         return Response(data)
 
 
-class TempViewSet(viewsets.ViewSet):
-    """test Api Viewset temp """
-    #queryset = DHT22_Temperature_Data.objects.all()[:5]
-    serializer_class = TempSerializer
+# class TempViewSet(viewsets.ViewSet):
+#     """test Api Viewset temp """
+#     #queryset = DHT22_Temperature_Data.objects.all()[:5]
+#     serializer_class = TempSerializer
 
-    def get(self, request, *args, **kwargs):
-        #qs_count = User.objects.all().count()
-        self.qs_count1 = DHT22_Temperature_Data.objects.values_list('Temperature').order_by('-id')[:24]
-        self.qs_count2 = DHT22_Temperature_Data.objects.values_list(
-            'Date_n_Time').order_by('-id')[:24]
-        #queryset = DHT22_Temperature_Data.objects.all()
-        #serializer = TempSerializer(queryset, many=True)
+#     def get(self, request, *args, **kwargs):
+#         #qs_count = User.objects.all().count()
+#         self.qs_count1 = DHT22_Temperature_Data.objects.values_list('Temperature').order_by('-id')[:24]
+#         self.qs_count2 = DHT22_Temperature_Data.objects.values_list(
+#             'Date_n_Time').order_by('-id')[:24]
+#         #queryset = DHT22_Temperature_Data.objects.all()
+#         #serializer = TempSerializer(queryset, many=True)
         
-        #labels = ["Users", "blue", "yellow", "green", "purple", "orange"]
-        #default_items = [qs_count, 14, 33, 32, 12, 2]
-        labels = self.qs_count2
-        default_items = self.qs_count1
-        data = {
-            'labels': labels,
-            'default': default_items,
-        }
-        return Response(data)
+#         #labels = ["Users", "blue", "yellow", "green", "purple", "orange"]
+#         #default_items = [qs_count, 14, 33, 32, 12, 2]
+#         labels = self.qs_count2
+#         default_items = self.qs_count1
+#         data = {
+#             'labels': labels,
+#             'default': default_items,
+#         }
+#         return Response(data)
 
-    def create(self, request):
-        """Create a New hello message"""
-        serializer = self.serializer_class(data=request.data)
-        if serializer.is_valid():
-            name = serializer.validated_data.get('Temperature'),
-            message = f'Hello{name}!'
-            return Response({'message': message})
-        else:
-            return Response(
-                serializer.errors,
-                status=status.http_400_bas_request
-            )
+#     def create(self, request):
+#         """Create a New hello message"""
+#         serializer = self.serializer_class(data=request.data)
+#         if serializer.is_valid():
+#             name = serializer.validated_data.get('Temperature'),
+#             message = f'Hello{name}!'
+#             return Response({'message': message})
+#         else:
+#             return Response(
+#                 serializer.errors,
+#                 status=status.http_400_bas_request
+#             )
+
+
+# class DayChartTemp(viewsets.ViewSet):
+#     """test Api Viewset temp """
+#     #queryset = DHT22_Temperature_Data.objects.order_by('-id')[:5]
+#     serializer_class = TempSerializer
+
+#     def get(self, request):
+#         #qs_count = User.objects.all().count()
+#         qs_count3 = DHT22_Temperature_Data.objects.values_list(
+#             'Temperature')[:5]
+#         qs_count4 = DHT22_Temperature_Data.objects.values_list(
+#             'Date_n_Time')[:5]
+#         #queryset = DHT22_Temperature_Data.objects.all()
+#         #serializer = TempSerializer(queryset, many=True)
+
+#         #labels = ["Users", "blue", "yellow", "green", "purple", "orange"]
+#         #default_items = [qs_count, 14, 33, 32, 12, 2]
+#         labels = qs_count4
+#         default_items = qs_count3
+#         data = {
+#             'labels': labels,
+#             'default': default_items,
+#         }
+#         return Response(data)
+    
+
+#     def create(self, request):
+#         """Create a New hello message"""
+#         serializer = self.serializer_class(data=request.data)
+#         if serializer.is_valid():
+#             name = serializer.validated_data.get('Temperature'),
+#             message = f'Hello{name}!'
+#             return Response({'message': message})
+#         else:
+#             return Response(
+#                 serializer.errors,
+#                 status=status.http_400_bad_request
+#             )
+
 
 
 

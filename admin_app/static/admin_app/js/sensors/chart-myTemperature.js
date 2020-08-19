@@ -15,8 +15,8 @@
 // })
 
 var endpoint = '/TempViewSet/';
-var defaultData = [];
-var labels = [];
+//var defaultData = [];
+//var labels = [];
 $.ajax({
   method: "GET",
   url: endpoint,
@@ -25,10 +25,6 @@ $.ajax({
     labels = data.labels
     defaultData = data.default
     setChart();
-    DayChart();
-   // myFunction()
-
-
 },
   error: function(error_data){
     console.log("error")
@@ -51,6 +47,24 @@ $.ajax({
 // }
 
 
+function DayChartTemp() {
+    $.ajax({
+        method: "GET",
+        url: '/DayChartTemp/',
+        success: function (data) {
+            console.log(data)
+            labels = data.labels
+            defaultData = data.default
+            setChart()
+        },
+        error: function (error_data) {
+            console.log("error")
+            console.log(error_data)
+        }
+    })
+
+};
+
 //  < canvas id = "myChart" width = "400" height = "400" ></canvas >
 //<script>
 function setChart(){
@@ -60,7 +74,7 @@ var myTemperatureChart = new Chart(ctx, {
     data: {
         labels: labels,
         datasets: [{
-            label: 'temperature',
+            label: 'Temperature Details',
             fill: false,
             data: defaultData,
             backgroundColor: [
@@ -134,27 +148,4 @@ var myTemperatureChart = new Chart(ctx, {
 //     //chart.data.datasets[0].labels = labels;
 //     myTemperatureChart.update();
 // };
-function DayChart() {
 
-    //make an ajax call and get status value using the same 'id'
-    //var var1 = document.getElementById("status").value;
-    $.ajax({
-        method: "GET",
-        url: endpoint,
-        success: function (data) {
-            console.log(data)
-            labels = data.labels
-            defaultData = data.default
-            setChart();
-            //DayChart();
-            // myFunction()
-
-
-        },
-        error: function (error_data) {
-            console.log("error")
-            console.log(error_data)
-        }
-    })
-
-};
