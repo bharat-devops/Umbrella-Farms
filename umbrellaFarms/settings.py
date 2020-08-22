@@ -29,7 +29,8 @@ SECRET_KEY = '(+bpczwy8_1h-6a7$+6=*vp^k@^!i2-#+#h4it8cq^1ukcti(g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1',
+                 '[::1]', 'umbrella-farms.herokuapp.com']
 
 
 # Application definition
