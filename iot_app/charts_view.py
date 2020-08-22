@@ -91,17 +91,17 @@ class WeekChartTemp(viewsets.ViewSet):
 
     def get(self, request):
         #qs_count = User.objects.all().count()
-        qs_count3 = DHT22_Temperature_Data.objects.values_list(
-            'Temperature')[:5]
-        qs_count4 = DHT22_Temperature_Data.objects.values_list(
-            'Date_n_Time')[:5]
+        weekdefault = DHT22_Temperature_Data.objects.values_list(
+            'Temperature')[:10]
+        weeklabels = DHT22_Temperature_Data.objects.values_list(
+            'Date_n_Time')[:10]
         #queryset = DHT22_Temperature_Data.objects.all()
         #serializer = TempSerializer(queryset, many=True)
 
         #labels = ["Users", "blue", "yellow", "green", "purple", "orange"]
         #default_items = [qs_count, 14, 33, 32, 12, 2]
-        labels = qs_count4
-        default_items = qs_count3
+        labels = weeklabels
+        default_items = weekdefault
         data = {
             'labels': labels,
             'default': default_items,
@@ -130,9 +130,9 @@ class MonthChartTemp(viewsets.ViewSet):
     def get(self, request):
         #qs_count = User.objects.all().count()
         qs_count3 = DHT22_Temperature_Data.objects.values_list(
-            'Temperature')[:5]
+            'Temperature')[:15]
         qs_count4 = DHT22_Temperature_Data.objects.values_list(
-            'Date_n_Time')[:5]
+            'Date_n_Time')[:15]
         #queryset = DHT22_Temperature_Data.objects.all()
         #serializer = TempSerializer(queryset, many=True)
 
@@ -168,9 +168,9 @@ class YearChartTemp(viewsets.ViewSet):
     def get(self, request):
         #qs_count = User.objects.all().count()
         qs_count3 = DHT22_Temperature_Data.objects.values_list(
-            'Temperature')[:5]
+            'Temperature')[:40]
         qs_count4 = DHT22_Temperature_Data.objects.values_list(
-            'Date_n_Time')[:5]
+            'Date_n_Time')[:40]
         #queryset = DHT22_Temperature_Data.objects.all()
         #serializer = TempSerializer(queryset, many=True)
 

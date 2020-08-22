@@ -33,5 +33,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', LoginView.as_view(), name='login'),
     path('admin_app/', include('admin_app.urls')),
-    path('', include('iot_app.urls'))
+    path('swagger-ui/', TemplateView.as_view(template_name='swagger-ui.html',
+                                             extra_context={'schema_url': 'openapi-schema'}), name='swagger-ui'),
+    path('iot_app', include('iot_app.urls'))
 ]

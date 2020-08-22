@@ -24,7 +24,7 @@ class DHT22_Temperature_Data(models.Model):
 class DHT22_Humidity_Data(models.Model):
     id = models.AutoField(primary_key=True)
     SensorID = models.TextField()
-    Date_n_Time = models.TextField()
+    Date_n_Time = models.DateTimeField()
     Humidity = models.TextField()
 
     class Meta:

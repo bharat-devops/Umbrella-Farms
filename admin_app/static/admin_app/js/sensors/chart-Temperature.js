@@ -106,7 +106,7 @@ function YearChartTemp() {
 //  < canvas id = "myChart" width = "400" height = "400" ></canvas >
 //<script>
 function setChart(){
-var ctx = document.getElementById('myHumidityChart');
+var ctx = document.getElementById('myTemperatureChart');
 var myTemperatureChart = new Chart(ctx, {
         type: 'line',
     data: {

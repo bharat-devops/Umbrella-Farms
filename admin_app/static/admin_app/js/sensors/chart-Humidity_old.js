@@ -13,10 +13,9 @@
 //     }]
 //   },
 // })
-
-var endpoint = '/TempViewSet/';
-//var defaultData = [];
-//var labels = [];
+var endpoint = '/TempViewSet/'
+var defaultData = []
+var labels = []
 $.ajax({
   method: "GET",
   url: endpoint,
@@ -24,7 +23,7 @@ $.ajax({
     console.log(data)
     labels = data.labels
     defaultData = data.default
-    setChart();
+    setChart()
 },
   error: function(error_data){
     console.log("error")
@@ -47,24 +46,6 @@ $.ajax({
 // }
 
 
-function DayChartTemp() {
-    $.ajax({
-        method: "GET",
-        url: '/DayChartTemp/',
-        success: function (data) {
-            console.log(data)
-            labels = data.labels
-            defaultData = data.default
-            setChart()
-        },
-        error: function (error_data) {
-            console.log("error")
-            console.log(error_data)
-        }
-    })
-
-};
-
 //  < canvas id = "myChart" width = "400" height = "400" ></canvas >
 //<script>
 function setChart(){
@@ -75,7 +56,6 @@ var myTemperatureChart = new Chart(ctx, {
         labels: labels,
         datasets: [{
             label: 'Temperature Details',
-            fill: false,
             data: defaultData,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -102,50 +82,13 @@ var myTemperatureChart = new Chart(ctx, {
         ticks: {
         //beginAtZero: false
         //min: 0
-            max: 40,
-            min: 10,
-            stepSize: 10,
-            maxTicksLimit: 4
-                },
-            gridLines: {
-                color: "rgb(234, 236, 244)",
-                zeroLineColor: "rgb(234, 236, 244)",
-                drawBorder: false,
-                borderDash: [2],
-                zeroLineBorderDash: [2]
-            }
-            }],
-        xAxes: [{
-            display: false
-            //time: {
-            //     unit: 'time',
-            //     parser: 'HH:MM:SS',
-            //     //tooltipFormat: 'll HH:mm',
-            //     unitStepSize: 1,
-            //     displayFormats: {
-            //         'time': 'HH:MM:SS'
-            //     }
-            // },
-            // ticks: {
-            //     maxTicksLimit: 4
-            // },
-            // gridLines: {
-            //     display: false,
-            //     drawBorder: false
-            //}
-        }]
+            max: 55,
+            min: 5,
+            stepSize: 5 
+                }
+            }]
         }
     }
 });
-
 }
 //</script>
-
-// function DayChart() {
-//     myTemperatureChart.data.labels = labels;
-//     //myTemperatureChart.data.datasets[0].data = [1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,1,2,3,4];
-//     // chart.data.datasets[0].data = defaultData;
-//     //chart.data.datasets[0].labels = labels;
-//     myTemperatureChart.update();
-// };
-
