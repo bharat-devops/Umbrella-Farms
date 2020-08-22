@@ -107,7 +107,7 @@ function YearChartTemp() {
 //<script>
 function setChart(){
 var ctx = document.getElementById('myHumidityChart');
-var myTemperatureChart = new Chart(ctx, {
+    var myHumidityChart = new Chart(ctx, {
         type: 'line',
     data: {
         labels: labels,

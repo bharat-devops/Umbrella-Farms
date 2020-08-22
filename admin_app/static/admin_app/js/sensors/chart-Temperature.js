@@ -1,7 +1,7 @@
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
 
-var endpoint = '/charts/TempViewSet/';
+var endpoint = '/iot_app/api/TempViewSet/';
 //var defaultData = [];
 //var labels = [];
 $.ajax({
@@ -37,7 +37,7 @@ $.ajax({
 function DayChartTemp() {
     $.ajax({
         method: "GET",
-        url: '/charts/DayChartTemp/',
+        url: '/iot_app/api/DayChartTemp/',
         success: function (data) {
             console.log(data)
             labels = data.labels
@@ -54,7 +54,7 @@ function DayChartTemp() {
 function WeekChartTemp() {
     $.ajax({
         method: "GET",
-        url: '/charts/WeekChartTemp/',
+        url: '/iot_app/api/WeekChartTemp/',
         success: function (data) {
             console.log(data)
             labels = data.labels
@@ -71,7 +71,7 @@ function WeekChartTemp() {
 function MonthChartTemp() {
     $.ajax({
         method: "GET",
-        url: '/charts/MonthChartTemp/',
+        url: '/iot_app/api/MonthChartTemp/',
         success: function (data) {
             console.log(data)
             labels = data.labels
@@ -88,7 +88,7 @@ function MonthChartTemp() {
 function YearChartTemp() {
     $.ajax({
         method: "GET",
-        url: '/charts/YearChartTemp/',
+        url: '/iot_app/api/YearChartTemp/',
         success: function (data) {
             console.log(data)
             labels = data.labels
