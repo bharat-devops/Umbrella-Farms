@@ -1,1 +1,1 @@
-web: gunicorn umbrella-farms:app --log-file -
+web: gunicorn umbrellaFarms.wsgi --log-file -
