@@ -134,6 +134,7 @@ STATICFILES_DIRS = (
 )
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+
 ## LOGIN_REDIRECT_URL = "/admin"
 LOGIN_REDIRECT_URL = "/admin_app"
 LOGIN_URL = "/login"
