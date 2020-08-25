@@ -36,7 +36,7 @@ urlpatterns = [
     path('utilities_border', views.utilities_border, name='utilities_border'),
     path('utilities_color', views.utilities_color, name='utilities_color'),
     path('utilities_other', views.utilities_other, name='utilities_other'),
-    path('Project', views.add_project, name='Project'),
+    path('Project', views.project_view, name='Project'),
     path('Iot', views.add_iot, name='Iot'),
 
 

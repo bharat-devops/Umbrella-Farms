@@ -1,9 +1,10 @@
+from .forms import ProjectForm
 from rest_framework.viewsets import ModelViewSet
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from rest_framework import viewsets,status
 from rest_framework import permissions
 from .mqtt_serializer import HeroSerializer, DHT22_Humidity_Serializer, DHT22_Temperature_Serializer, TempSerializer
-from .models import Hero,DHT22_Humidity_Data,DHT22_Temperature_Data
+from .models import Hero,DHT22_Humidity_Data,DHT22_Temperature_Data,Project
 from iot_app import mqtt_serializer
 # Create your views here.
 from django.contrib.auth import get_user_model
@@ -90,6 +91,33 @@ class HelloViewSet(viewsets.ViewSet):
 
         }
         return Response(data)
+
+
+# def project_view(request):
+# 	context = {}
+
+# 	# create object of form
+# 	form = ProjectForm(request.POST or None, request.FILES or None)
+
+# 	# check if form data is valid
+# 	if form.is_valid():
+# 		# save the form data to model
+# 		form.save()
+
+# 	context['form'] = form
+# 	return render(request, "admin_app/Project.html", context)
+# def project_view(request,proj_name):
+#     stu = ProjectForm()  
+#     return render(request,"Project.html",{'proj_name':proj_name})  
+
+
+# def project_view(request):
+#     context = {}
+#     context['form'] = ProjectForm()
+#     return render(request, "Project.html", context)
+
+
+
 
 
 # class TempViewSet(viewsets.ViewSet):

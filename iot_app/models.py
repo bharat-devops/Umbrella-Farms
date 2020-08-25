@@ -47,11 +47,13 @@ class Hero(models.Model):
 
 class Project(models.Model):
     proj_name = models.CharField(max_length=15, primary_key=True, unique=True)
-    proj_gps = models.CharField(max_length=60)
+    proj_tag = models.CharField(max_length=15, blank=True)
+    proj_lat = models.FloatField(('Latitude'), blank=True, null=True)
+    proj_lon = models.FloatField(('Longitude'), blank=True, null=True)
     proj_zip = models.CharField(max_length=60)
     proj_created = models.DateTimeField(auto_now=True)
     proj_last_updated = models.DateTimeField(auto_now=True)
-    proj_image = models.ImageField(upload_to='uploads/% Y/% m/% d/', blank=True)
+    proj_image = models.ImageField(upload_to='image_upload/', blank=True)
 
     class Meta:
         db_table = "Project"
@@ -74,3 +76,6 @@ class User_Details(models.Model):
 
     def __str__(self):
         return self.user_first_name
+
+
+

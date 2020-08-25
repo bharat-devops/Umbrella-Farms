@@ -31,6 +31,5 @@ urlpatterns = [
     path('/api/', include(router.urls)),
     path('/schema/', schema_view),
     path('/docs/', include_docs_urls(title='Temperature API')),
-    # path('api1/', include(router1.urls)),
     path('/api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
