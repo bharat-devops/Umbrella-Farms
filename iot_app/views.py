@@ -48,7 +48,7 @@ class DHT22_HumidityViewSet(viewsets.ModelViewSet):
     """
     queryset = DHT22_Humidity_Data.objects.all()
     serializer_class = DHT22_Humidity_Serializer
-    #permission_classes = [permissions.IsAuthenticated]
+    ##permission_classes = [permissions.IsAuthenticated]
 
 
 class HelloViewSet(viewsets.ViewSet):
