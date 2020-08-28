@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 import datetime
 
+
 # Create your models here.
 
 
@@ -77,5 +78,31 @@ class User_Details(models.Model):
     def __str__(self):
         return self.user_first_name
 
+
+class Device_Details(models.Model):
+    device_name = models.CharField(max_length=15, primary_key=True)
+    device_description = models.TextField()
+    device_parameters = models.TextField()
+    device_code = models.CharField(max_length=15)
+    device_tech_details = models.TextField(blank=True)
+    device_image = models.ImageField(upload_to='device_upload/', blank=True)
+    class Meta:
+        db_table = "Device_Details"
+
+    def __str__(self):
+        return self.device_name
+
+
+class Iot_Devices(models.Model):
+    iot_device = models.CharField(max_length=25, primary_key=True)
+    iot_name = models.CharField(max_length=25,unique=True)
+    iot_project = models.CharField(max_length=25)
+    iot_note = models.TextField(blank=True)
+
+    class Meta:
+        db_table = "Iot_Devices"
+
+    def __str__(self):
+        return self.iot_name
 
 

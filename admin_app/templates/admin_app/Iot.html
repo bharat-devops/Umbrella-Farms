@@ -1,85 +1,34 @@
-{% extends "admin_app/base1.html" %}
+{% extends "admin_app/base2.html" %}
 {% load static %}
-{% block content %}
-<!-- Page Wrapper -->
-<div id="wrapper">
+{% block content1 %}
 
-<!-- Sidebar -->
-{% include 'admin_app/nav.html' %}
-<!-- End of Sidebar -->
-  <!-- Content Wrapper -->
-  <div id="content-wrapper" class="d-flex flex-column">
+<!-- Begin Page Content -->
+<!-- <div class="container-fluid"> -->
 
-    <!-- Main Content -->
-    <div id="content">
-
-<!-- Topbar -->
-{% include 'admin_app/topbar.html' %}
-<!-- End of Topbar -->
-
-      <!-- Begin Page Content -->
-      <div class="container-fluid">
-
-        <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Adding New Device</h1>
-        <p class="mb-4">You need to add a unique name for the added device. <a target="_blank" href="https://bharat.umbrella.farms">
-           Editing IOT devices</a>.</p>
-
-        <!-- IOT Form -->
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">ADD Device</h6>
-          </div>
-          <div class="card-body">
-            
-            <form class="form-inline">
-              
-              <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Choose Device</label>
-              <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                <option selected>Choose...</option>
-                <option value="1">Temperature Sensor(Air)</option>
-                <option value="2">Water Sensor</option>
-                <option value="3">Ph Sensor</option>
-                <option value="4">Temperature Sensor(Water)</option>
-              </select>
-              
-              
-              <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Device Name </label>
-              <input type="text" class="form-control" id="inlineFormCustomSelectPref" placeholder="Device Name" required>
-              
-              <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Choose Polyhouse</label>
-              <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                <option selected>Choose...</option>
-                <option value="1">PolyHouse 1</option>
-                <option value="2">PolyHouse 2</option>
-                <option value="3">PolyHouse 3</option>
-                <option value="4">PolyHouse 4</option>
-              </select>
-              
-              <div class="custom-control custom-checkbox my-1 mr-sm-2">
-                <input type="checkbox" class="custom-control-input" id="customControlInline">
-                <label class="custom-control-label" for="customControlInline">Remember my preference</label>
-              </div>
-              
-              <button type="submit" class="btn btn-primary my-1">Submit</button>
-              
-            </form>
-          </div>
-        </div>
-
-      </div>
-      <!-- /.container-fluid -->
-
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Project Details</h1>
+<p class="mb-4">Project name can be a Unique Polyhouse name, or a certain Boundry in which all the IOT devices will
+  be
+  tied together.If there are multiple Polyhouse , multiple Polyhouse should be entered.You can tie Different
+  polyhouses with a TAG to identify easily.</p>
+<!-- Content Row -->
+<div class="row">
+  <!-- <div class="col-md-6 col-xs-6 col-lg-6"></div> -->
+  <!-- Project Form -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Add Device</h6>
     </div>
-    <!-- End of Main Content -->
-
-    <!-- Footer -->
-{% include 'admin_app/footer.html' %}
-    <!-- End of Footer -->
-
+    <div class="card-body">
+      <form action="{% url 'admin_app:Iot' %}" method="POST" class="post-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary" type="submit">Submit Form</button>
+        <!-- <button type="submit" class="save btn btn-default">Save123</button> -->
+      </form>
+    </div>
   </div>
-  <!-- End of Content Wrapper -->
-
 </div>
-<!-- End of Page Wrapper -->
+<!-- </div> -->
+<!-- /.container-fluid -->
 {% endblock %}

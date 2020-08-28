@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from iot_app.forms import ProjectForm
+from iot_app.forms import ProjectForm,Iot_DevicesForm
 
 
 @login_required(login_url='/login/')
@@ -112,12 +112,18 @@ def utilities_other(request):
 
 @login_required(login_url='/login/')
 def add_iot(request):
-    return render(request, 'admin_app/Iot.html')
+    form = Iot_DevicesForm(request.POST or None)
+    return render(request, 'admin_app/Iot.html', {'form': form})
 
 
 def project_view(request):
     form = ProjectForm(request.POST or None)
     return render(request, 'admin_app/Project.html', {'form': form})
+
+
+# def add_iot(request):
+#     form = Iot_DevicesForm(request.POST or None)
+#     return render(request, 'admin_app/Iot.html', {'form': form})
 
 
 
