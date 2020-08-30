@@ -1,6 +1,7 @@
 {% extends "admin_app/base2.html" %}
 {% load static %}
 {% block content1 %}
+{% load crispy_forms_tags %}
 
 <!-- Begin Page Content -->
 <!-- <div class="container-fluid"> -->
@@ -19,7 +20,7 @@
     <div class="card-body">
       <form action="{% url 'admin_app:Iot' %}" method="POST" class="post-form">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form|crispy }}
         <button class="btn btn-primary" type="submit">Submit Form</button>
         <!-- <button type="submit" class="save btn btn-default">Save123</button> -->
       </form>
